@@ -25,7 +25,7 @@ func main() {
 
 	address := fmt.Sprintf("%s:%d", config.ListenAddress, config.ListenPort)
 	e := echo.New()
-	e.GET("/", func(c echo.Context) error {
+	e.GET("/metrics", func(c echo.Context) error {
 		return c.String(http.StatusOK, metrics.GetSortedCacheString())
 	})
 	e.HideBanner = true
